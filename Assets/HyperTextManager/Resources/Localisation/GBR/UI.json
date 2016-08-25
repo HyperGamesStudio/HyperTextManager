@@ -1,0 +1,11 @@
+{
+	"SettingsPanel" : {
+		"Title" : "SETTINGS",
+		"Body" : "This is a beautiful settings panel you can use to, among other things, change the language. Click the flags to change language.#EOL##EOL#If you have a look at one of the textfields, you can see that they have a component on them for automatically fetching language data.",
+		"Facts" : [
+			"There are over 300 languages spoken in England.",
+			"Gargoyles were originally used as drain pipes!",
+			"England is thought of as having the world’s worst food."
+		]
+	}
+}

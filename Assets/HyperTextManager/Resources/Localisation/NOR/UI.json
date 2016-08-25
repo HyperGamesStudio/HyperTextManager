@@ -1,0 +1,10 @@
+{
+	"SettingsPanel" : {
+		"Title" : "INNSTILLINGER",
+		"Body" : "Dette er et nydelig innstillingspanel som du kan bruke til, blant annet, å bytte språk. Klikk på et av flaggene for å bytte språk.#EOL##EOL#Hvis du ser på en av tekstfeltene, så kan du se at det er lagt til en komponent som automagisk henter språk data.",
+		"Facts" : [
+			"Norge introduserte lakse-sushi til japanerne.",
+			"Voss vann er bare vann fra det kommunale vannreservoaret i Iveland."
+		]
+	}
+}
