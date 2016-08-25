@@ -37,6 +37,7 @@ namespace HyperGames.Localisation {
 
 		// Vars
 		public const string EOL = "#EOL#";
+		private const string PlayerPrefsKey = "Localization";
 		private const string LANG = "[lang]";
 		private const string MAIN_PATH = "Localisation/" + LANG + "/";
 		public static bool hasLoaded = false;
@@ -66,6 +67,33 @@ namespace HyperGames.Localisation {
 			if (hasLoaded) {
 				return;
 			}
+
+
+			// Set default language based on system language, and fall back to English
+			if(!PlayerPrefs.HasKey(PlayerPrefsKey)) {
+				switch(Application.systemLanguage) {
+					case SystemLanguage.Norwegian:
+						currentLang = Languages.NOR;
+						break;
+					case SystemLanguage.Swedish:
+						currentLang = Languages.SWE;
+						break;
+					case SystemLanguage.Danish:
+						currentLang = Languages.DNK;
+						break;
+					case SystemLanguage.German:
+						currentLang = Languages.DEU;
+						break;
+
+					default:
+						currentLang = Languages.GBR;
+						break;
+
+				}
+				PlayerPrefs.SetInt(PlayerPrefsKey,(int)currentLang);
+			} else currentLang = (Languages)PlayerPrefs.GetInt(PlayerPrefsKey);
+
+
 			LoadNewLanguage(currentLang);
 		}
 
@@ -97,7 +125,9 @@ namespace HyperGames.Localisation {
 			}
 			
 			hasLoaded = true;
-			
+
+			PlayerPrefs.SetInt(PlayerPrefsKey,(int)newLang);
+
 #if HYPER_MESSAGING
 			Messenger.Dispatch(new NTextManagerLoadComplete());
 #else
